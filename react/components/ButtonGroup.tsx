@@ -1,16 +1,35 @@
-import React from "react";
-import {useCheckoutURL} from "vtex.checkout-resources/utils";
+/* eslint-disable prettier/prettier */
+/* eslint-disable import/order */
+import React from 'react'
+import { useCssHandles } from 'vtex.css-handles'
+import { useCheckoutURL } from 'vtex.checkout-resources/Utils'
+
 const ButtonGroup = () => {
-  return(
-    <>
+  const { url: checkoutUrl } = useCheckoutURL()
+  const CSS_HANDLES = ['containerButton', 'links', 'buttonBuy', 'linksButton']
+  const handles = useCssHandles(CSS_HANDLES)
+
+  return (
+    <div className={handles.containerButton}>
       <div>
-        <a href="/">CHECK OUT</a>
+        <a className={handles.links} href={checkoutUrl}>
+          check out
+        </a>
       </div>
       <div>
-        <button>CONTINUA COMPRANDO</button>
-        <a href="/">VER CARRITO</a>
+        <button className={handles.buttonBuy}>
+          <a className={handles.linksButton} href="/construccion">
+            Continuar Comprando
+          </a>
+        </button>
       </div>
-    </>
+      <div>
+        <a className={handles.links} href={checkoutUrl}>
+          ver carrito
+        </a>
+      </div>
+    </div>
   )
 }
+
 export default ButtonGroup
