@@ -12,7 +12,7 @@
   border-radius: 5px;
   box-shadow: 0px 10px 15px 3px rgb(0 0 0 / 10%);
   font-weight: bold;
-  max-width: 40%;
+  max-width: 45%;
 }
 .links{
   text-align: center;
@@ -52,7 +52,7 @@
   margin: 3%;
   border-radius: 3%;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  max-width: 30%;
+  max-width: 25%;
 }
 .card img{
   margin-top: 5%;
