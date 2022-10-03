@@ -2,7 +2,7 @@
 
 Componente que muestra información de lo que tenemos en el carrito al momento de agregar un producto al carrito desde el detalle del producto
 
-<img src="https://github.com/JeferProgramer/katronix-clone/blob/main/assets/img/Bullets.PNG" />
+<img src="https://github.com/JeferProgramer/katronix-clone/blob/main/assets/img/Order.PNG" />
 
 ## Configuración
 ### Paso 1 - Clonación del repositorio
@@ -20,10 +20,10 @@ Una vez que esté en el archivo, debe reemplazar los valores `vendor`, `name`, `
 ```json
 {
   "vendor": "itgloberspartnercl",
-  "name": "bullets-diagramation",
+  "name": "quick-order",
   "version": "0.0.1",
-  "title": "Bullets Diagramation",
-  "description": "this component will allow the development of bullets that target   lower level categories",
+  "title": "Quick Order",
+  "description": "This application will make a quick order by entering the sku number of a product",
 }
 ```
 
@@ -43,17 +43,9 @@ Para que el componente funcione correctamente se debe declara el builder store e
 Luego hay que crear una carpeta llamada store en la carpeta superior del componente, esa carpeta `store` tendrá un archivo llamado `interfaces.json`, así:
 ```json
 {
-"list-context.bullet-group": {          // La manera que va a ser declarada el componente en la app vtex, este nombre puede ser diferente al name de como lo llamaste en el manifest.json
-    "component": "BulletGroup",           // El nombre del componente del que éste va a ser alimentado
-    "composition": "children",            // La composición es por si nuestro componente va a aceptar children's
-    "allowed": "*",
-    "content": {                          //Las definiciones del contenido de nuestro componente
-      "properties": {
-        "bullets": {
-          "$ref": "app:itgloberspartnercl.bullets-diagramation#/definitions/BulletGroup"
-        }
-      }
-    }
+ "add-to-cart-info": {                   // La manera que va a ser declarada el componente en la app vtex, este nombre puede ser diferente al name de como lo llamaste en el manifest.json
+    "component": "AddToCartInfo",         // El nombre del componente del que éste va a ser alimentado
+    "render": "client"                    // Esta propiedad se le instaura si sólo va a ser utilizada por el cliente
   }
 }
 ```
@@ -64,10 +56,10 @@ En el `manifest.json` se debe declarar las dependencias que van a ser utilizadas
 
 ```json
 "dependencies": {
-  "vtex.native-types": "0.x",
-  "vtex.list-context": "0.x",
-  "vtex.device-detector": "0.x",
-  "vtex.css-handles": "0.x"
+  "vtex.css-handles": "0.x",
+   "vtex.checkout-resources": "0.x",
+   "vtex.order-manager": "0.x",
+   "vtex.product-context": "0.x"
 },
 ```
 
@@ -78,7 +70,7 @@ El primer `package.json` es el global, está al lado del `manifest.json`, vamos 
 ```json
 {
   "version": "0.0.1",
-  "name": "bullets-diagramation",
+  "name": "add-to-cart-info",
 }
 ```
 
@@ -89,13 +81,13 @@ Y repetiremos el mismo proceso con el `package.json` que hay dentro de la carpet
 Para este paso debes ingresar a la carpeta de react, y una vez allí debes ejecutar en tu consola 
 ```json
 
-itglobers-bullets-diagrmation/react> yarn
+itglobers-add-to-cart-info/react> yarn
 ```
 para que se instalen todas las dependencias necesarias
 
 ### Paso 7 - Crear componente
 
-En la carpeta de react se debe crear el archivo con el que se va a trabajar, en este caso : `BulletGroup.tsx`, luego crear su carpeta de componentes y empezar a desarrollar
+En la carpeta de react se debe crear el archivo con el que se va a trabajar, en este caso : `AddToCartInfo.tsx`, luego crear su carpeta de componentes y empezar a desarrollar
 
 ### Paso 8 - Ejecute un preview de la tienda
 
@@ -106,10 +98,9 @@ Si el proceso se ejecuta sin ningún error, se mostrará el siguiente mensaje: `
 Esto le permitirá ver los cambios aplicados en tiempo real, a través de la cuenta y el espacio de trabajo en el que está trabajando.
 
 ## Dependencies
-1. "vtex.native-types"
-2. "vtex.list-context"
-3. "vtex.device-detector"
-4. "vtex.css-handles"
-
+1. "vtex.css-handles": "0.x",
+2. "vtex.checkout-resources": "0.x",
+3. "vtex.order-manager": "0.x",
+4. "vtex.product-context": "0.x"
 ## Contributors
 1. Jeferson David Cañon Melo
