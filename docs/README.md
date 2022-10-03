@@ -20,10 +20,10 @@ Una vez que esté en el archivo, debe reemplazar los valores `vendor`, `name`, `
 ```json
 {
   "vendor": "itgloberspartnercl",
-  "name": "quick-order",
+  "name": "add-to-cart-info",
   "version": "0.0.1",
-  "title": "Quick Order",
-  "description": "This application will make a quick order by entering the sku number of a product",
+  "title": "Add to cart info",
+  "description": "This component will show the additional information when making an addition to the shopping list",
 }
 ```
 
